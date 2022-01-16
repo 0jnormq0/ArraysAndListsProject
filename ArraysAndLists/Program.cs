@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ArraysAndLists
 {
@@ -9,11 +10,14 @@ namespace ArraysAndLists
             //TODO:
 
             // Create an int Array and populate numbers 1-10
+            var numbers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
             /* Create two Lists of type int.
              * Name one List "evens"
              * Name the other List "odds"
              */
+            var evens = new List<int>();
+            var odds = new List<int>();
 
             /* Using either a foreach or for loop,
              * nest an if statement to check to see
@@ -21,12 +25,45 @@ namespace ArraysAndLists
              * Then add those numbers to either the evens List
              * or the odds List
              */
+            foreach(int i in numbers)
+            {
+                if (i % 2 == 0) 
+                {
+                    evens.Add(i);
+                }
+                else
+                {
+                    odds.Add(i);
+                }
+            }
 
-            /* Now using foeach or for loops,
+            /* Now using foreach or for loops,
              * display each List of even and odd numbers
              *
              * Try to be creative in your display
              */
+
+            Console.WriteLine("Even numbers are very orderly. Look at them marching in a perfect line:");
+
+            for (int i = 0; i < evens.Count; i++)
+            {
+                Console.WriteLine(evens[i]);
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Odd numbers march to a different drum. Look how they dance across the screen!");
+
+            foreach (int i in odds)
+            {
+
+                for (int n = 0; n < odds.Count; n++)
+                {
+                    string numOutput = odds[n].ToString();
+                    char pad = '~';
+                    Console.WriteLine("{0}", numOutput.PadLeft((i), pad));
+                }
+
+            }
         }
     }
 }
